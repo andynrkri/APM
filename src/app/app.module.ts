@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {ProductDetailComponent} from './product/product-detail.component';
 import {WelcomeComponent} from "./home/welcome.component";
 import {RouterModule} from "@angular/router";
+import {ProductGaurdService} from "./product/product-gaurd.service";
 
 
 @NgModule({
@@ -22,12 +23,12 @@ import {RouterModule} from "@angular/router";
       [
         {path: 'welcome', component: WelcomeComponent},
         {path: 'products', component: ProductListComponent},
-        {path: 'product/:id', component: ProductDetailComponent},
+        {path: 'product/:id', canActivate: [ProductGaurdService], component: ProductDetailComponent},
         {path: '', redirectTo: 'welcome', pathMatch: 'full'},
         {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
       ])
   ],
-  providers: [],
+  providers: [ProductGaurdService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
