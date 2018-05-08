@@ -8,7 +8,7 @@ import { Component, OnChanges, Input, EventEmitter, Output } from '@angular/core
 export class StarComponent implements OnChanges {
   @Input() rating: number;
   starWidth: number;
-  //ratingClicked will act as an event, to be used between braces like other events.
+  //rating click will act as an event, to be used between braces like other events.
   @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnChanges(): void {
