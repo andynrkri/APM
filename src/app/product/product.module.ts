@@ -15,7 +15,7 @@ import { SharedModule } from '../shared/shared.module';
         {path: 'product/:id', canActivate: [ProductGaurdService], component: ProductDetailComponent}
       ]), SharedModule
   ],
-  declarations: [ ProductListComponent, ConvertToSpacePipe, ProductDetailComponent],
+  declarations: [ ProductListComponent, ProductDetailComponent],
   providers:[ProductService, ProductGaurdService]
 })
 export class ProductModule { }
