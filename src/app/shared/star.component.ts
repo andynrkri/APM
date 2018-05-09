@@ -1,9 +1,15 @@
-import { Component, OnChanges, Input, EventEmitter, Output } from '@angular/core';
+import {Component, OnChanges, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'pm-star',
-  templateUrl: './star.component.html',
-  styleUrls: ['./star.component.css']
+  template: `
+    <div class="crop" [style.width.px]="starWidth" [title]="rating" (click)="onClick()">
+      <div style="width: 86px"><span class="glyphicon glyphicon-star"></span> <span
+        class="glyphicon glyphicon-star"></span> <span class="glyphicon glyphicon-star"></span> <span
+        class="glyphicon glyphicon-star"></span> <span class="glyphicon glyphicon-star"></span></div>
+    </div>    
+  `,
+  styles: [".crop{overflow: hidden;} div{cursor: pointer;}"]
 })
 export class StarComponent implements OnChanges {
   @Input() rating: number;
